@@ -1,0 +1,14 @@
+{
+    "trigger": true,
+    "modules": [
+        "custom"
+    ],
+    "parentResource": "retroboard",
+    "functionName": "retroboardPostAuthentication",
+    "parentStack": "auth",
+    "triggerEnvs": "[]",
+    "triggerTemplate": "PostAuthentication.json.ejs",
+    "roleName": "retroboardPostAuthentication",
+    "skipEdit": true,
+    "resourceName": "retroboardPostAuthentication"
+}

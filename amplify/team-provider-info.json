@@ -1,0 +1,25 @@
+{
+    "web": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-rrrr-web-102611-authRole",
+            "UnauthRoleArn": "arn:aws:iam::813848038060:role/amplify-rrrr-web-102611-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::813848038060:role/amplify-rrrr-web-102611-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-rrrr-web-102611-deployment",
+            "UnauthRoleName": "amplify-rrrr-web-102611-unauthRole",
+            "StackName": "amplify-rrrr-web-102611",
+            "StackId": "arn:aws:cloudformation:us-east-1:813848038060:stack/amplify-rrrr-web-102611/0d39e1a0-279c-11ea-a5b7-0ad23187ddb2",
+            "AmplifyAppId": "d25ua5oi9ngyam"
+        },
+        "categories": {
+            "function": {
+                "retroboardPostAuthentication": {}
+            },
+            "auth": {
+                "rrrr00b4b162": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"720712044517-nanpfo7iaacsn7irlhcp1gnci5rtlul1.apps.googleusercontent.com\",\"client_secret\":\"wj_pLQRU1cqUnn-p4bjHyF47\"}]"
+                }
+            }
+        }
+    }
+}
