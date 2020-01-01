@@ -1,25 +1,86 @@
-type Blog @model {
-  id: ID!
-  name: String!
-  posts: [Post] @connection(name: "BlogPosts")
-}
-type Post @model {
+type Project @model {
   id: ID!
   title: String!
-  blog: Blog @connection(name: "BlogPosts")
-  comments: [Comment] @connection(name: "PostComments")
+  logoUrl: AWSURL!
+  description: String!
+  boards: [Board] @connection(name: "ProjectBords")
+  users: [ProjectUsers] @connection(name: "ProjectUsers")
+  ownerUser: User @connection
+  createdAt: AWSTimestamp
 }
-type Comment @model {
+
+type Board @model {
   id: ID!
-  content: String
-  post: Post @connection(name: "PostComments")
+  title: String!
+  description: String!
+  columns: [Column] @connection(name: "BoardColumns")
+  project: Project @connection(name: "ProjectBords")
+  createdAt: AWSTimestamp
+}
+
+type Column @model {
+  id: ID!
+  title: String!
+  order: Int
+  color: String!
+  board: Board @connection(name: "BoardColumns")
+  cards: [Card] @connection(name: "ColumnCards")
+  createdAt: AWSTimestamp
+}
+
+type Card @model {
+  id: ID!
+  content: String!
+  isAnonymous: Boolean!
+  column: Column @connection(name: "ColumnCards")
+  likes: [Like] @connection(name: "CardLikes")
+  ownerUser: User @connection
+  createdAt: AWSTimestamp
+  updatedAt: AWSTimestamp
+}
+
+type Like @model {
+  id: ID!
+  card: Card @connection(name: "CardLikes")
+  user: User @connection
+  createdAt: AWSTimestamp
 }
 
 type User @model {
   id: ID!
   name: String!
-  email: String!
+  email: AWSEmail!
   username: String!
   picture: String
+  projects: [ProjectUsers] @connection(name: "UserProjects")
   createdAt: AWSTimestamp
+}
+
+type ProjectUsers @model(queries: null) {
+  id: ID!
+  user: User @connection(name: "UserProjects")
+  project: Project @connection(name: "ProjectUsers")
+}
+
+input CustomCreateColumnInput {
+  id: ID
+  title: String!
+  order: Int
+  color: String!
+  createdAt: AWSTimestamp
+  columnBoardId: ID
+}
+
+input CustomCreateBoardInput {
+  id: ID!
+  title: String!
+  description: String!
+  createdAt: AWSTimestamp
+  boardProjectId: ID!
+  columns: [CustomCreateColumnInput]
+}
+
+type Mutation {
+  customCreateBoard(input: CustomCreateBoardInput!): Board
+    @function(name: "addBoardResolver-${env}")
 }

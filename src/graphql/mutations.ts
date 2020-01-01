@@ -1,189 +1,685 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const createBlog = `mutation CreateBlog(
-  $input: CreateBlogInput!
-  $condition: ModelBlogConditionInput
-) {
-  createBlog(input: $input, condition: $condition) {
+export const addBoard = `mutation AddBoard($limit: Int, $start: Int) {
+  addBoard(limit: $limit, start: $start) {
     id
-    name
-    posts {
+    title
+    description
+    columns {
       items {
         id
         title
+        order
+        color
+        createdAt
       }
       nextToken
     }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const updateBlog = `mutation UpdateBlog(
-  $input: UpdateBlogInput!
-  $condition: ModelBlogConditionInput
+export const createProject = `mutation CreateProject(
+  $input: CreateProjectInput!
+  $condition: ModelProjectConditionInput
 ) {
-  updateBlog(input: $input, condition: $condition) {
+  createProject(input: $input, condition: $condition) {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const deleteBlog = `mutation DeleteBlog(
-  $input: DeleteBlogInput!
-  $condition: ModelBlogConditionInput
+export const updateProject = `mutation UpdateProject(
+  $input: UpdateProjectInput!
+  $condition: ModelProjectConditionInput
 ) {
-  deleteBlog(input: $input, condition: $condition) {
+  updateProject(input: $input, condition: $condition) {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const createPost = `mutation CreatePost(
-  $input: CreatePostInput!
-  $condition: ModelPostConditionInput
+export const deleteProject = `mutation DeleteProject(
+  $input: DeleteProjectInput!
+  $condition: ModelProjectConditionInput
 ) {
-  createPost(input: $input, condition: $condition) {
+  deleteProject(input: $input, condition: $condition) {
     id
     title
-    blog {
+    logoUrl
+    description
+    boards {
+      items {
+        id
+        title
+        description
+        createdAt
+      }
+      nextToken
+    }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
       id
       name
-      posts {
+      email
+      username
+      picture
+      projects {
         nextToken
       }
+      createdAt
     }
-    comments {
+    createdAt
+  }
+}
+`;
+export const createBoard = `mutation CreateBoard(
+  $input: CreateBoardInput!
+  $condition: ModelBoardConditionInput
+) {
+  createBoard(input: $input, condition: $condition) {
+    id
+    title
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const updateBoard = `mutation UpdateBoard(
+  $input: UpdateBoardInput!
+  $condition: ModelBoardConditionInput
+) {
+  updateBoard(input: $input, condition: $condition) {
+    id
+    title
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const deleteBoard = `mutation DeleteBoard(
+  $input: DeleteBoardInput!
+  $condition: ModelBoardConditionInput
+) {
+  deleteBoard(input: $input, condition: $condition) {
+    id
+    title
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const createColumn = `mutation CreateColumn(
+  $input: CreateColumnInput!
+  $condition: ModelColumnConditionInput
+) {
+  createColumn(input: $input, condition: $condition) {
+    id
+    title
+    order
+    color
+    board {
+      id
+      title
+      description
+      columns {
+        nextToken
+      }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
+    }
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const updatePost = `mutation UpdatePost(
-  $input: UpdatePostInput!
-  $condition: ModelPostConditionInput
+export const updateColumn = `mutation UpdateColumn(
+  $input: UpdateColumnInput!
+  $condition: ModelColumnConditionInput
 ) {
-  updatePost(input: $input, condition: $condition) {
+  updateColumn(input: $input, condition: $condition) {
     id
     title
-    blog {
+    order
+    color
+    board {
       id
-      name
-      posts {
+      title
+      description
+      columns {
         nextToken
       }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const deletePost = `mutation DeletePost(
-  $input: DeletePostInput!
-  $condition: ModelPostConditionInput
+export const deleteColumn = `mutation DeleteColumn(
+  $input: DeleteColumnInput!
+  $condition: ModelColumnConditionInput
 ) {
-  deletePost(input: $input, condition: $condition) {
+  deleteColumn(input: $input, condition: $condition) {
     id
     title
-    blog {
+    order
+    color
+    board {
       id
-      name
-      posts {
+      title
+      description
+      columns {
         nextToken
       }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const createComment = `mutation CreateComment(
-  $input: CreateCommentInput!
-  $condition: ModelCommentConditionInput
+export const createCard = `mutation CreateCard(
+  $input: CreateCardInput!
+  $condition: ModelCardConditionInput
 ) {
-  createComment(input: $input, condition: $condition) {
+  createCard(input: $input, condition: $condition) {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
   }
 }
 `;
-export const updateComment = `mutation UpdateComment(
-  $input: UpdateCommentInput!
-  $condition: ModelCommentConditionInput
+export const updateCard = `mutation UpdateCard(
+  $input: UpdateCardInput!
+  $condition: ModelCardConditionInput
 ) {
-  updateComment(input: $input, condition: $condition) {
+  updateCard(input: $input, condition: $condition) {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
   }
 }
 `;
-export const deleteComment = `mutation DeleteComment(
-  $input: DeleteCommentInput!
-  $condition: ModelCommentConditionInput
+export const deleteCard = `mutation DeleteCard(
+  $input: DeleteCardInput!
+  $condition: ModelCardConditionInput
 ) {
-  deleteComment(input: $input, condition: $condition) {
+  deleteCard(input: $input, condition: $condition) {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+`;
+export const createLike = `mutation CreateLike(
+  $input: CreateLikeInput!
+  $condition: ModelLikeConditionInput
+) {
+  createLike(input: $input, condition: $condition) {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const updateLike = `mutation UpdateLike(
+  $input: UpdateLikeInput!
+  $condition: ModelLikeConditionInput
+) {
+  updateLike(input: $input, condition: $condition) {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const deleteLike = `mutation DeleteLike(
+  $input: DeleteLikeInput!
+  $condition: ModelLikeConditionInput
+) {
+  deleteLike(input: $input, condition: $condition) {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
@@ -197,6 +693,12 @@ export const createUser = `mutation CreateUser(
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
   }
 }
@@ -211,6 +713,12 @@ export const updateUser = `mutation UpdateUser(
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
   }
 }
@@ -225,7 +733,136 @@ export const deleteUser = `mutation DeleteUser(
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
+  }
+}
+`;
+export const createProjectUsers = `mutation CreateProjectUsers(
+  $input: CreateProjectUsersInput!
+  $condition: ModelProjectUsersConditionInput
+) {
+  createProjectUsers(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+  }
+}
+`;
+export const updateProjectUsers = `mutation UpdateProjectUsers(
+  $input: UpdateProjectUsersInput!
+  $condition: ModelProjectUsersConditionInput
+) {
+  updateProjectUsers(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+  }
+}
+`;
+export const deleteProjectUsers = `mutation DeleteProjectUsers(
+  $input: DeleteProjectUsersInput!
+  $condition: ModelProjectUsersConditionInput
+) {
+  deleteProjectUsers(input: $input, condition: $condition) {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
   }
 }
 `;

@@ -2,35 +2,6 @@
 	"AWSTemplateFormatVersion": "2010-09-09",
 	"Description": "Lambda resource stack creation using Amplify CLI",
 	"Parameters": {
-		"modules": {
-			"Type": "String",
-			"Default": "",
-			"Description": "Comma-delimmited list of modules to be executed by a lambda trigger. Sent to resource as an env variable."
-		},
-		"resourceName": {
-			"Type": "String",
-			"Default": ""
-		},
-		"trigger": {
-			"Type": "String",
-			"Default": "true"
-		},
-		"functionName": {
-			"Type": "String",
-			"Default": ""
-		},
-		"roleName": {
-			"Type": "String",
-			"Default": ""
-		},
-		"parentResource": {
-			"Type": "String",
-			"Default": ""
-		},
-		"parentStack": {
-			"Type": "String",
-			"Default": ""
-		},
 		"env": {
 			"Type": "String"
 		}
@@ -57,12 +28,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"retroboardPostAuthentication",
+						"addBoardResolver",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"retroboardPostAuthentication",
+									"addBoardResolver",
 									"-",
 									{
 										"Ref": "env"
@@ -77,9 +48,6 @@
 						"ENV": {
 							"Ref": "env"
 						},
-						"MODULES": {
-							"Ref": "modules"
-						},
 						"REGION": {
 							"Ref": "AWS::Region"
 						}
@@ -91,11 +59,11 @@
 						"Arn"
 					]
 				},
-				"Runtime": "nodejs8.10",
+				"Runtime": "nodejs10.x",
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "amplify-rrrr-web-102611-deployment",
-					"S3Key": "amplify-builds/retroboardPostAuthentication-2b584677714e61593775-build.zip"
+					"S3Key": "amplify-builds/addBoardResolver-71385470513736436e33-build.zip"
 				}
 			}
 		},
@@ -105,12 +73,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"retroboardPostAuthentication",
+						"rrrrLambdaRole6c20ad1c",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"retroboardPostAuthentication",
+									"rrrrLambdaRole6c20ad1c",
 									"-",
 									{
 										"Ref": "env"
@@ -196,14 +164,14 @@
 				]
 			}
 		},
-		"LambdaExecutionRole": {
-			"Value": {
-				"Ref": "LambdaExecutionRole"
-			}
-		},
 		"Region": {
 			"Value": {
 				"Ref": "AWS::Region"
+			}
+		},
+		"LambdaExecutionRole": {
+			"Value": {
+				"Ref": "LambdaExecutionRole"
 			}
 		}
 	}

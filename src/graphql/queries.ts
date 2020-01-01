@@ -1,110 +1,347 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const getBlog = `query GetBlog($id: ID!) {
-  getBlog(id: $id) {
+export const getProject = `query GetProject($id: ID!) {
+  getProject(id: $id) {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const listBlogs = `query ListBlogs(
-  $filter: ModelBlogFilterInput
+export const listProjects = `query ListProjects(
+  $filter: ModelProjectFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listBlogs(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listProjects(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      name
-      posts {
+      title
+      logoUrl
+      description
+      boards {
         nextToken
       }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
     }
     nextToken
   }
 }
 `;
-export const getPost = `query GetPost($id: ID!) {
-  getPost(id: $id) {
+export const getBoard = `query GetBoard($id: ID!) {
+  getBoard(id: $id) {
     id
     title
-    blog {
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
       id
-      name
-      posts {
+      title
+      logoUrl
+      description
+      boards {
         nextToken
       }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    createdAt
+  }
+}
+`;
+export const listBoards = `query ListBoards(
+  $filter: ModelBoardFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listBoards(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      title
+      description
+      columns {
+        nextToken
+      }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
+    }
+    nextToken
+  }
+}
+`;
+export const getColumn = `query GetColumn($id: ID!) {
+  getColumn(id: $id) {
+    id
+    title
+    order
+    color
+    board {
+      id
+      title
+      description
+      columns {
+        nextToken
+      }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
+    }
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const listPosts = `query ListPosts(
-  $filter: ModelPostFilterInput
+export const listColumns = `query ListColumns(
+  $filter: ModelColumnFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listColumns(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
     nextToken
   }
 }
 `;
-export const getComment = `query GetComment($id: ID!) {
-  getComment(id: $id) {
+export const getCard = `query GetCard($id: ID!) {
+  getCard(id: $id) {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
   }
 }
 `;
-export const listComments = `query ListComments(
-  $filter: ModelCommentFilterInput
+export const listCards = `query ListCards(
+  $filter: ModelCardFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listComments(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listCards(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
       content
-      post {
+      isAnonymous
+      column {
         id
         title
+        order
+        color
+        createdAt
       }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}
+`;
+export const getLike = `query GetLike($id: ID!) {
+  getLike(id: $id) {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const listLikes = `query ListLikes(
+  $filter: ModelLikeFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listLikes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      card {
+        id
+        content
+        isAnonymous
+        createdAt
+        updatedAt
+      }
+      user {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
     }
     nextToken
   }
@@ -117,6 +354,12 @@ export const getUser = `query GetUser($id: ID!) {
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
   }
 }
@@ -133,6 +376,9 @@ export const listUsers = `query ListUsers(
       email
       username
       picture
+      projects {
+        nextToken
+      }
       createdAt
     }
     nextToken

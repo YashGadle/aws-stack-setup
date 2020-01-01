@@ -4,8 +4,6 @@ const ddb = new aws.DynamoDB({ apiVersion: "2012-10-08" });
 exports.handler = async (event, context, callback) => {
   console.log(event);
 
-  let date = new Date();
-
   const tableName = process.env.TABLE_NAME;
   const region = process.env.REGION;
   const defaultAvi =
@@ -23,8 +21,7 @@ exports.handler = async (event, context, callback) => {
         picture: { S: event.request.userAttributes.picture || defaultAvi },
         username: { S: event.userName },
         name: { S: event.request.userAttributes.name },
-        email: { S: event.request.userAttributes.email },
-        createdAt: { S: date.toISOString() }
+        email: { S: event.request.userAttributes.email }
       },
       TableName: tableName
     };

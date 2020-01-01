@@ -1,162 +1,600 @@
 // tslint:disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateBlog = `subscription OnCreateBlog {
-  onCreateBlog {
+export const onCreateProject = `subscription OnCreateProject {
+  onCreateProject {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const onUpdateBlog = `subscription OnUpdateBlog {
-  onUpdateBlog {
+export const onUpdateProject = `subscription OnUpdateProject {
+  onUpdateProject {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const onDeleteBlog = `subscription OnDeleteBlog {
-  onDeleteBlog {
+export const onDeleteProject = `subscription OnDeleteProject {
+  onDeleteProject {
     id
-    name
-    posts {
+    title
+    logoUrl
+    description
+    boards {
       items {
         id
         title
+        description
+        createdAt
       }
       nextToken
     }
+    users {
+      items {
+        id
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
-export const onCreatePost = `subscription OnCreatePost {
-  onCreatePost {
+export const onCreateBoard = `subscription OnCreateBoard {
+  onCreateBoard {
     id
     title
-    blog {
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
       id
-      name
-      posts {
+      title
+      logoUrl
+      description
+      boards {
         nextToken
       }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    createdAt
+  }
+}
+`;
+export const onUpdateBoard = `subscription OnUpdateBoard {
+  onUpdateBoard {
+    id
+    title
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const onDeleteBoard = `subscription OnDeleteBoard {
+  onDeleteBoard {
+    id
+    title
+    description
+    columns {
+      items {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      nextToken
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const onCreateColumn = `subscription OnCreateColumn {
+  onCreateColumn {
+    id
+    title
+    order
+    color
+    board {
+      id
+      title
+      description
+      columns {
+        nextToken
+      }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
+    }
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const onUpdatePost = `subscription OnUpdatePost {
-  onUpdatePost {
+export const onUpdateColumn = `subscription OnUpdateColumn {
+  onUpdateColumn {
     id
     title
-    blog {
+    order
+    color
+    board {
       id
-      name
-      posts {
+      title
+      description
+      columns {
         nextToken
       }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const onDeletePost = `subscription OnDeletePost {
-  onDeletePost {
+export const onDeleteColumn = `subscription OnDeleteColumn {
+  onDeleteColumn {
     id
     title
-    blog {
+    order
+    color
+    board {
       id
-      name
-      posts {
+      title
+      description
+      columns {
         nextToken
       }
+      project {
+        id
+        title
+        logoUrl
+        description
+        createdAt
+      }
+      createdAt
     }
-    comments {
+    cards {
       items {
         id
         content
+        isAnonymous
+        createdAt
+        updatedAt
       }
       nextToken
     }
+    createdAt
   }
 }
 `;
-export const onCreateComment = `subscription OnCreateComment {
-  onCreateComment {
+export const onCreateCard = `subscription OnCreateCard {
+  onCreateCard {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
   }
 }
 `;
-export const onUpdateComment = `subscription OnUpdateComment {
-  onUpdateComment {
+export const onUpdateCard = `subscription OnUpdateCard {
+  onUpdateCard {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
   }
 }
 `;
-export const onDeleteComment = `subscription OnDeleteComment {
-  onDeleteComment {
+export const onDeleteCard = `subscription OnDeleteCard {
+  onDeleteCard {
     id
     content
-    post {
+    isAnonymous
+    column {
       id
       title
-      blog {
+      order
+      color
+      board {
         id
-        name
+        title
+        description
+        createdAt
       }
-      comments {
+      cards {
         nextToken
       }
+      createdAt
     }
+    likes {
+      items {
+        id
+        createdAt
+      }
+      nextToken
+    }
+    ownerUser {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+    updatedAt
+  }
+}
+`;
+export const onCreateLike = `subscription OnCreateLike {
+  onCreateLike {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const onUpdateLike = `subscription OnUpdateLike {
+  onUpdateLike {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
+  }
+}
+`;
+export const onDeleteLike = `subscription OnDeleteLike {
+  onDeleteLike {
+    id
+    card {
+      id
+      content
+      isAnonymous
+      column {
+        id
+        title
+        order
+        color
+        createdAt
+      }
+      likes {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+      updatedAt
+    }
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    createdAt
   }
 }
 `;
@@ -167,6 +605,12 @@ export const onCreateUser = `subscription OnCreateUser {
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
   }
 }
@@ -178,6 +622,12 @@ export const onUpdateUser = `subscription OnUpdateUser {
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
   }
 }
@@ -189,7 +639,127 @@ export const onDeleteUser = `subscription OnDeleteUser {
     email
     username
     picture
+    projects {
+      items {
+        id
+      }
+      nextToken
+    }
     createdAt
+  }
+}
+`;
+export const onCreateProjectUsers = `subscription OnCreateProjectUsers {
+  onCreateProjectUsers {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+  }
+}
+`;
+export const onUpdateProjectUsers = `subscription OnUpdateProjectUsers {
+  onUpdateProjectUsers {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
+  }
+}
+`;
+export const onDeleteProjectUsers = `subscription OnDeleteProjectUsers {
+  onDeleteProjectUsers {
+    id
+    user {
+      id
+      name
+      email
+      username
+      picture
+      projects {
+        nextToken
+      }
+      createdAt
+    }
+    project {
+      id
+      title
+      logoUrl
+      description
+      boards {
+        nextToken
+      }
+      users {
+        nextToken
+      }
+      ownerUser {
+        id
+        name
+        email
+        username
+        picture
+        createdAt
+      }
+      createdAt
+    }
   }
 }
 `;

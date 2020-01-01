@@ -1,16 +1,23 @@
 /* tslint:disable */
 //  This file was automatically generated and should not be edited.
 
-export type CreateBlogInput = {
+export type CreateProjectInput = {
   id?: string | null,
-  name: string,
+  title: string,
+  logoUrl: string,
+  description: string,
+  createdAt?: number | null,
+  projectOwnerUserId?: string | null,
 };
 
-export type ModelBlogConditionInput = {
-  name?: ModelStringInput | null,
-  and?: Array< ModelBlogConditionInput | null > | null,
-  or?: Array< ModelBlogConditionInput | null > | null,
-  not?: ModelBlogConditionInput | null,
+export type ModelProjectConditionInput = {
+  title?: ModelStringInput | null,
+  logoUrl?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelProjectConditionInput | null > | null,
+  or?: Array< ModelProjectConditionInput | null > | null,
+  not?: ModelProjectConditionInput | null,
 };
 
 export type ModelStringInput = {
@@ -53,58 +60,155 @@ export type ModelSizeInput = {
   between?: Array< number | null > | null,
 };
 
-export type UpdateBlogInput = {
-  id: string,
-  name?: string | null,
+export type ModelIntInput = {
+  ne?: number | null,
+  eq?: number | null,
+  le?: number | null,
+  lt?: number | null,
+  ge?: number | null,
+  gt?: number | null,
+  between?: Array< number | null > | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
 };
 
-export type DeleteBlogInput = {
-  id?: string | null,
-};
-
-export type CreatePostInput = {
-  id?: string | null,
-  title: string,
-  postBlogId?: string | null,
-};
-
-export type ModelPostConditionInput = {
-  title?: ModelStringInput | null,
-  and?: Array< ModelPostConditionInput | null > | null,
-  or?: Array< ModelPostConditionInput | null > | null,
-  not?: ModelPostConditionInput | null,
-};
-
-export type UpdatePostInput = {
+export type UpdateProjectInput = {
   id: string,
   title?: string | null,
-  postBlogId?: string | null,
+  logoUrl?: string | null,
+  description?: string | null,
+  createdAt?: number | null,
+  projectOwnerUserId?: string | null,
 };
 
-export type DeletePostInput = {
+export type DeleteProjectInput = {
   id?: string | null,
 };
 
-export type CreateCommentInput = {
+export type CreateBoardInput = {
   id?: string | null,
-  content?: string | null,
-  commentPostId?: string | null,
+  title: string,
+  description: string,
+  createdAt?: number | null,
+  boardProjectId?: string | null,
 };
 
-export type ModelCommentConditionInput = {
+export type ModelBoardConditionInput = {
+  title?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelBoardConditionInput | null > | null,
+  or?: Array< ModelBoardConditionInput | null > | null,
+  not?: ModelBoardConditionInput | null,
+};
+
+export type UpdateBoardInput = {
+  id: string,
+  title?: string | null,
+  description?: string | null,
+  createdAt?: number | null,
+  boardProjectId?: string | null,
+};
+
+export type DeleteBoardInput = {
+  id?: string | null,
+};
+
+export type CreateColumnInput = {
+  id?: string | null,
+  title: string,
+  order?: number | null,
+  color: string,
+  createdAt?: number | null,
+  columnBoardId?: string | null,
+};
+
+export type ModelColumnConditionInput = {
+  title?: ModelStringInput | null,
+  order?: ModelIntInput | null,
+  color?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelColumnConditionInput | null > | null,
+  or?: Array< ModelColumnConditionInput | null > | null,
+  not?: ModelColumnConditionInput | null,
+};
+
+export type UpdateColumnInput = {
+  id: string,
+  title?: string | null,
+  order?: number | null,
+  color?: string | null,
+  createdAt?: number | null,
+  columnBoardId?: string | null,
+};
+
+export type DeleteColumnInput = {
+  id?: string | null,
+};
+
+export type CreateCardInput = {
+  id?: string | null,
+  content: string,
+  isAnonymous: boolean,
+  createdAt?: number | null,
+  updatedAt?: number | null,
+  cardColumnId?: string | null,
+  cardOwnerUserId?: string | null,
+};
+
+export type ModelCardConditionInput = {
   content?: ModelStringInput | null,
-  and?: Array< ModelCommentConditionInput | null > | null,
-  or?: Array< ModelCommentConditionInput | null > | null,
-  not?: ModelCommentConditionInput | null,
+  isAnonymous?: ModelBooleanInput | null,
+  createdAt?: ModelIntInput | null,
+  updatedAt?: ModelIntInput | null,
+  and?: Array< ModelCardConditionInput | null > | null,
+  or?: Array< ModelCardConditionInput | null > | null,
+  not?: ModelCardConditionInput | null,
 };
 
-export type UpdateCommentInput = {
+export type ModelBooleanInput = {
+  ne?: boolean | null,
+  eq?: boolean | null,
+  attributeExists?: boolean | null,
+  attributeType?: ModelAttributeTypes | null,
+};
+
+export type UpdateCardInput = {
   id: string,
   content?: string | null,
-  commentPostId?: string | null,
+  isAnonymous?: boolean | null,
+  createdAt?: number | null,
+  updatedAt?: number | null,
+  cardColumnId?: string | null,
+  cardOwnerUserId?: string | null,
 };
 
-export type DeleteCommentInput = {
+export type DeleteCardInput = {
+  id?: string | null,
+};
+
+export type CreateLikeInput = {
+  id?: string | null,
+  createdAt?: number | null,
+  likeCardId?: string | null,
+  likeUserId?: string | null,
+};
+
+export type ModelLikeConditionInput = {
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelLikeConditionInput | null > | null,
+  or?: Array< ModelLikeConditionInput | null > | null,
+  not?: ModelLikeConditionInput | null,
+};
+
+export type UpdateLikeInput = {
+  id: string,
+  createdAt?: number | null,
+  likeCardId?: string | null,
+  likeUserId?: string | null,
+};
+
+export type DeleteLikeInput = {
   id?: string | null,
 };
 
@@ -128,18 +232,6 @@ export type ModelUserConditionInput = {
   not?: ModelUserConditionInput | null,
 };
 
-export type ModelIntInput = {
-  ne?: number | null,
-  eq?: number | null,
-  le?: number | null,
-  lt?: number | null,
-  ge?: number | null,
-  gt?: number | null,
-  between?: Array< number | null > | null,
-  attributeExists?: boolean | null,
-  attributeType?: ModelAttributeTypes | null,
-};
-
 export type UpdateUserInput = {
   id: string,
   name?: string | null,
@@ -153,12 +245,37 @@ export type DeleteUserInput = {
   id?: string | null,
 };
 
-export type ModelBlogFilterInput = {
+export type CreateProjectUsersInput = {
+  id?: string | null,
+  projectUsersUserId?: string | null,
+  projectUsersProjectId?: string | null,
+};
+
+export type ModelProjectUsersConditionInput = {
+  and?: Array< ModelProjectUsersConditionInput | null > | null,
+  or?: Array< ModelProjectUsersConditionInput | null > | null,
+  not?: ModelProjectUsersConditionInput | null,
+};
+
+export type UpdateProjectUsersInput = {
+  id: string,
+  projectUsersUserId?: string | null,
+  projectUsersProjectId?: string | null,
+};
+
+export type DeleteProjectUsersInput = {
+  id?: string | null,
+};
+
+export type ModelProjectFilterInput = {
   id?: ModelIDInput | null,
-  name?: ModelStringInput | null,
-  and?: Array< ModelBlogFilterInput | null > | null,
-  or?: Array< ModelBlogFilterInput | null > | null,
-  not?: ModelBlogFilterInput | null,
+  title?: ModelStringInput | null,
+  logoUrl?: ModelStringInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelProjectFilterInput | null > | null,
+  or?: Array< ModelProjectFilterInput | null > | null,
+  not?: ModelProjectFilterInput | null,
 };
 
 export type ModelIDInput = {
@@ -177,20 +294,44 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null,
 };
 
-export type ModelPostFilterInput = {
+export type ModelBoardFilterInput = {
   id?: ModelIDInput | null,
   title?: ModelStringInput | null,
-  and?: Array< ModelPostFilterInput | null > | null,
-  or?: Array< ModelPostFilterInput | null > | null,
-  not?: ModelPostFilterInput | null,
+  description?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelBoardFilterInput | null > | null,
+  or?: Array< ModelBoardFilterInput | null > | null,
+  not?: ModelBoardFilterInput | null,
 };
 
-export type ModelCommentFilterInput = {
+export type ModelColumnFilterInput = {
+  id?: ModelIDInput | null,
+  title?: ModelStringInput | null,
+  order?: ModelIntInput | null,
+  color?: ModelStringInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelColumnFilterInput | null > | null,
+  or?: Array< ModelColumnFilterInput | null > | null,
+  not?: ModelColumnFilterInput | null,
+};
+
+export type ModelCardFilterInput = {
   id?: ModelIDInput | null,
   content?: ModelStringInput | null,
-  and?: Array< ModelCommentFilterInput | null > | null,
-  or?: Array< ModelCommentFilterInput | null > | null,
-  not?: ModelCommentFilterInput | null,
+  isAnonymous?: ModelBooleanInput | null,
+  createdAt?: ModelIntInput | null,
+  updatedAt?: ModelIntInput | null,
+  and?: Array< ModelCardFilterInput | null > | null,
+  or?: Array< ModelCardFilterInput | null > | null,
+  not?: ModelCardFilterInput | null,
+};
+
+export type ModelLikeFilterInput = {
+  id?: ModelIDInput | null,
+  createdAt?: ModelIntInput | null,
+  and?: Array< ModelLikeFilterInput | null > | null,
+  or?: Array< ModelLikeFilterInput | null > | null,
+  not?: ModelLikeFilterInput | null,
 };
 
 export type ModelUserFilterInput = {
@@ -205,243 +346,832 @@ export type ModelUserFilterInput = {
   not?: ModelUserFilterInput | null,
 };
 
-export type CreateBlogMutationVariables = {
-  input: CreateBlogInput,
-  condition?: ModelBlogConditionInput | null,
+export type AddBoardMutationVariables = {
+  limit?: number | null,
+  start?: number | null,
 };
 
-export type CreateBlogMutation = {
-  createBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type UpdateBlogMutationVariables = {
-  input: UpdateBlogInput,
-  condition?: ModelBlogConditionInput | null,
-};
-
-export type UpdateBlogMutation = {
-  updateBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type DeleteBlogMutationVariables = {
-  input: DeleteBlogInput,
-  condition?: ModelBlogConditionInput | null,
-};
-
-export type DeleteBlogMutation = {
-  deleteBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type CreatePostMutationVariables = {
-  input: CreatePostInput,
-  condition?: ModelPostConditionInput | null,
-};
-
-export type CreatePostMutation = {
-  createPost:  {
-    __typename: "Post",
+export type AddBoardMutation = {
+  addBoard:  {
+    __typename: "Board",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Column",
         id: string,
-        content: string | null,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type UpdatePostMutationVariables = {
-  input: UpdatePostInput,
-  condition?: ModelPostConditionInput | null,
+export type CreateProjectMutationVariables = {
+  input: CreateProjectInput,
+  condition?: ModelProjectConditionInput | null,
 };
 
-export type UpdatePostMutation = {
-  updatePost:  {
-    __typename: "Post",
+export type CreateProjectMutation = {
+  createProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type DeletePostMutationVariables = {
-  input: DeletePostInput,
-  condition?: ModelPostConditionInput | null,
+export type UpdateProjectMutationVariables = {
+  input: UpdateProjectInput,
+  condition?: ModelProjectConditionInput | null,
 };
 
-export type DeletePostMutation = {
-  deletePost:  {
-    __typename: "Post",
+export type UpdateProjectMutation = {
+  updateProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type CreateCommentMutationVariables = {
-  input: CreateCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type DeleteProjectMutationVariables = {
+  input: DeleteProjectInput,
+  condition?: ModelProjectConditionInput | null,
 };
 
-export type CreateCommentMutation = {
-  createComment:  {
-    __typename: "Comment",
+export type DeleteProjectMutation = {
+  deleteProject:  {
+    __typename: "Project",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
-      id: string,
-      title: string,
-      blog:  {
-        __typename: "Blog",
+    title: string,
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
+      items:  Array< {
+        __typename: "Board",
         id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
         nextToken: string | null,
       } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type UpdateCommentMutationVariables = {
-  input: UpdateCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type CreateBoardMutationVariables = {
+  input: CreateBoardInput,
+  condition?: ModelBoardConditionInput | null,
 };
 
-export type UpdateCommentMutation = {
-  updateComment:  {
-    __typename: "Comment",
+export type CreateBoardMutation = {
+  createBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type DeleteCommentMutationVariables = {
-  input: DeleteCommentInput,
-  condition?: ModelCommentConditionInput | null,
+export type UpdateBoardMutationVariables = {
+  input: UpdateBoardInput,
+  condition?: ModelBoardConditionInput | null,
 };
 
-export type DeleteCommentMutation = {
-  deleteComment:  {
-    __typename: "Comment",
+export type UpdateBoardMutation = {
+  updateBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type DeleteBoardMutationVariables = {
+  input: DeleteBoardInput,
+  condition?: ModelBoardConditionInput | null,
+};
+
+export type DeleteBoardMutation = {
+  deleteBoard:  {
+    __typename: "Board",
+    id: string,
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type CreateColumnMutationVariables = {
+  input: CreateColumnInput,
+  condition?: ModelColumnConditionInput | null,
+};
+
+export type CreateColumnMutation = {
+  createColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type UpdateColumnMutationVariables = {
+  input: UpdateColumnInput,
+  condition?: ModelColumnConditionInput | null,
+};
+
+export type UpdateColumnMutation = {
+  updateColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type DeleteColumnMutationVariables = {
+  input: DeleteColumnInput,
+  condition?: ModelColumnConditionInput | null,
+};
+
+export type DeleteColumnMutation = {
+  deleteColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type CreateCardMutationVariables = {
+  input: CreateCardInput,
+  condition?: ModelCardConditionInput | null,
+};
+
+export type CreateCardMutation = {
+  createCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type UpdateCardMutationVariables = {
+  input: UpdateCardInput,
+  condition?: ModelCardConditionInput | null,
+};
+
+export type UpdateCardMutation = {
+  updateCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type DeleteCardMutationVariables = {
+  input: DeleteCardInput,
+  condition?: ModelCardConditionInput | null,
+};
+
+export type DeleteCardMutation = {
+  deleteCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type CreateLikeMutationVariables = {
+  input: CreateLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type CreateLikeMutation = {
+  createLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type UpdateLikeMutationVariables = {
+  input: UpdateLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type UpdateLikeMutation = {
+  updateLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type DeleteLikeMutationVariables = {
+  input: DeleteLikeInput,
+  condition?: ModelLikeConditionInput | null,
+};
+
+export type DeleteLikeMutation = {
+  deleteLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
@@ -458,6 +1188,14 @@ export type CreateUserMutation = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
@@ -475,6 +1213,14 @@ export type UpdateUserMutation = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
@@ -492,154 +1238,596 @@ export type DeleteUserMutation = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
 
-export type GetBlogQueryVariables = {
-  id: string,
+export type CreateProjectUsersMutationVariables = {
+  input: CreateProjectUsersInput,
+  condition?: ModelProjectUsersConditionInput | null,
 };
 
-export type GetBlogQuery = {
-  getBlog:  {
-    __typename: "Blog",
+export type CreateProjectUsersMutation = {
+  createProjectUsers:  {
+    __typename: "ProjectUsers",
     id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
         id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
   } | null,
 };
 
-export type ListBlogsQueryVariables = {
-  filter?: ModelBlogFilterInput | null,
-  limit?: number | null,
-  nextToken?: string | null,
+export type UpdateProjectUsersMutationVariables = {
+  input: UpdateProjectUsersInput,
+  condition?: ModelProjectUsersConditionInput | null,
 };
 
-export type ListBlogsQuery = {
-  listBlogs:  {
-    __typename: "ModelBlogConnection",
-    items:  Array< {
-      __typename: "Blog",
+export type UpdateProjectUsersMutation = {
+  updateProjectUsers:  {
+    __typename: "ProjectUsers",
+    id: string,
+    user:  {
+      __typename: "User",
       id: string,
       name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
         nextToken: string | null,
       } | null,
-    } | null > | null,
-    nextToken: string | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
   } | null,
 };
 
-export type GetPostQueryVariables = {
+export type DeleteProjectUsersMutationVariables = {
+  input: DeleteProjectUsersInput,
+  condition?: ModelProjectUsersConditionInput | null,
+};
+
+export type DeleteProjectUsersMutation = {
+  deleteProjectUsers:  {
+    __typename: "ProjectUsers",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+  } | null,
+};
+
+export type GetProjectQueryVariables = {
   id: string,
 };
 
-export type GetPostQuery = {
-  getPost:  {
-    __typename: "Post",
+export type GetProjectQuery = {
+  getProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type ListPostsQueryVariables = {
-  filter?: ModelPostFilterInput | null,
+export type ListProjectsQueryVariables = {
+  filter?: ModelProjectFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListPostsQuery = {
-  listPosts:  {
-    __typename: "ModelPostConnection",
+export type ListProjectsQuery = {
+  listProjects:  {
+    __typename: "ModelProjectConnection",
     items:  Array< {
-      __typename: "Post",
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
 };
 
-export type GetCommentQueryVariables = {
+export type GetBoardQueryVariables = {
   id: string,
 };
 
-export type GetCommentQuery = {
-  getComment:  {
-    __typename: "Comment",
+export type GetBoardQuery = {
+  getBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type ListCommentsQueryVariables = {
-  filter?: ModelCommentFilterInput | null,
+export type ListBoardsQueryVariables = {
+  filter?: ModelBoardFilterInput | null,
   limit?: number | null,
   nextToken?: string | null,
 };
 
-export type ListCommentsQuery = {
-  listComments:  {
-    __typename: "ModelCommentConnection",
+export type ListBoardsQuery = {
+  listBoards:  {
+    __typename: "ModelBoardConnection",
     items:  Array< {
-      __typename: "Comment",
+      __typename: "Board",
       id: string,
-      content: string | null,
-      post:  {
-        __typename: "Post",
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
         id: string,
         title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
       } | null,
+      createdAt: number | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetColumnQueryVariables = {
+  id: string,
+};
+
+export type GetColumnQuery = {
+  getColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type ListColumnsQueryVariables = {
+  filter?: ModelColumnFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListColumnsQuery = {
+  listColumns:  {
+    __typename: "ModelColumnConnection",
+    items:  Array< {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetCardQueryVariables = {
+  id: string,
+};
+
+export type GetCardQuery = {
+  getCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type ListCardsQueryVariables = {
+  filter?: ModelCardFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListCardsQuery = {
+  listCards:  {
+    __typename: "ModelCardConnection",
+    items:  Array< {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null > | null,
+    nextToken: string | null,
+  } | null,
+};
+
+export type GetLikeQueryVariables = {
+  id: string,
+};
+
+export type GetLikeQuery = {
+  getLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type ListLikesQueryVariables = {
+  filter?: ModelLikeFilterInput | null,
+  limit?: number | null,
+  nextToken?: string | null,
+};
+
+export type ListLikesQuery = {
+  listLikes:  {
+    __typename: "ModelLikeConnection",
+    items:  Array< {
+      __typename: "Like",
+      id: string,
+      card:  {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null,
+      user:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
@@ -657,6 +1845,14 @@ export type GetUserQuery = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
@@ -677,204 +1873,715 @@ export type ListUsersQuery = {
       email: string,
       username: string,
       picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
       createdAt: number | null,
     } | null > | null,
     nextToken: string | null,
   } | null,
 };
 
-export type OnCreateBlogSubscription = {
-  onCreateBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnUpdateBlogSubscription = {
-  onUpdateBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnDeleteBlogSubscription = {
-  onDeleteBlog:  {
-    __typename: "Blog",
-    id: string,
-    name: string,
-    posts:  {
-      __typename: "ModelPostConnection",
-      items:  Array< {
-        __typename: "Post",
-        id: string,
-        title: string,
-      } | null > | null,
-      nextToken: string | null,
-    } | null,
-  } | null,
-};
-
-export type OnCreatePostSubscription = {
-  onCreatePost:  {
-    __typename: "Post",
+export type OnCreateProjectSubscription = {
+  onCreateProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type OnUpdatePostSubscription = {
-  onUpdatePost:  {
-    __typename: "Post",
+export type OnUpdateProjectSubscription = {
+  onUpdateProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type OnDeletePostSubscription = {
-  onDeletePost:  {
-    __typename: "Post",
+export type OnDeleteProjectSubscription = {
+  onDeleteProject:  {
+    __typename: "Project",
     id: string,
     title: string,
-    blog:  {
-      __typename: "Blog",
-      id: string,
-      name: string,
-      posts:  {
-        __typename: "ModelPostConnection",
-        nextToken: string | null,
-      } | null,
-    } | null,
-    comments:  {
-      __typename: "ModelCommentConnection",
+    logoUrl: string,
+    description: string,
+    boards:  {
+      __typename: "ModelBoardConnection",
       items:  Array< {
-        __typename: "Comment",
+        __typename: "Board",
         id: string,
-        content: string | null,
+        title: string,
+        description: string,
+        createdAt: number | null,
       } | null > | null,
       nextToken: string | null,
     } | null,
+    users:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type OnCreateCommentSubscription = {
-  onCreateComment:  {
-    __typename: "Comment",
+export type OnCreateBoardSubscription = {
+  onCreateBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type OnUpdateCommentSubscription = {
-  onUpdateComment:  {
-    __typename: "Comment",
+export type OnUpdateBoardSubscription = {
+  onUpdateBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
   } | null,
 };
 
-export type OnDeleteCommentSubscription = {
-  onDeleteComment:  {
-    __typename: "Comment",
+export type OnDeleteBoardSubscription = {
+  onDeleteBoard:  {
+    __typename: "Board",
     id: string,
-    content: string | null,
-    post:  {
-      __typename: "Post",
+    title: string,
+    description: string,
+    columns:  {
+      __typename: "ModelColumnConnection",
+      items:  Array< {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    project:  {
+      __typename: "Project",
       id: string,
       title: string,
-      blog:  {
-        __typename: "Blog",
-        id: string,
-        name: string,
-      } | null,
-      comments:  {
-        __typename: "ModelCommentConnection",
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
         nextToken: string | null,
       } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
     } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnCreateColumnSubscription = {
+  onCreateColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnUpdateColumnSubscription = {
+  onUpdateColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnDeleteColumnSubscription = {
+  onDeleteColumn:  {
+    __typename: "Column",
+    id: string,
+    title: string,
+    order: number | null,
+    color: string,
+    board:  {
+      __typename: "Board",
+      id: string,
+      title: string,
+      description: string,
+      columns:  {
+        __typename: "ModelColumnConnection",
+        nextToken: string | null,
+      } | null,
+      project:  {
+        __typename: "Project",
+        id: string,
+        title: string,
+        logoUrl: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    cards:  {
+      __typename: "ModelCardConnection",
+      items:  Array< {
+        __typename: "Card",
+        id: string,
+        content: string,
+        isAnonymous: boolean,
+        createdAt: number | null,
+        updatedAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnCreateCardSubscription = {
+  onCreateCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type OnUpdateCardSubscription = {
+  onUpdateCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type OnDeleteCardSubscription = {
+  onDeleteCard:  {
+    __typename: "Card",
+    id: string,
+    content: string,
+    isAnonymous: boolean,
+    column:  {
+      __typename: "Column",
+      id: string,
+      title: string,
+      order: number | null,
+      color: string,
+      board:  {
+        __typename: "Board",
+        id: string,
+        title: string,
+        description: string,
+        createdAt: number | null,
+      } | null,
+      cards:  {
+        __typename: "ModelCardConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    likes:  {
+      __typename: "ModelLikeConnection",
+      items:  Array< {
+        __typename: "Like",
+        id: string,
+        createdAt: number | null,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
+    ownerUser:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+    updatedAt: number | null,
+  } | null,
+};
+
+export type OnCreateLikeSubscription = {
+  onCreateLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnUpdateLikeSubscription = {
+  onUpdateLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
+  } | null,
+};
+
+export type OnDeleteLikeSubscription = {
+  onDeleteLike:  {
+    __typename: "Like",
+    id: string,
+    card:  {
+      __typename: "Card",
+      id: string,
+      content: string,
+      isAnonymous: boolean,
+      column:  {
+        __typename: "Column",
+        id: string,
+        title: string,
+        order: number | null,
+        color: string,
+        createdAt: number | null,
+      } | null,
+      likes:  {
+        __typename: "ModelLikeConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+      updatedAt: number | null,
+    } | null,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    createdAt: number | null,
   } | null,
 };
 
@@ -886,6 +2593,14 @@ export type OnCreateUserSubscription = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
@@ -898,6 +2613,14 @@ export type OnUpdateUserSubscription = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
   } | null,
 };
@@ -910,6 +2633,149 @@ export type OnDeleteUserSubscription = {
     email: string,
     username: string,
     picture: string | null,
+    projects:  {
+      __typename: "ModelProjectUsersConnection",
+      items:  Array< {
+        __typename: "ProjectUsers",
+        id: string,
+      } | null > | null,
+      nextToken: string | null,
+    } | null,
     createdAt: number | null,
+  } | null,
+};
+
+export type OnCreateProjectUsersSubscription = {
+  onCreateProjectUsers:  {
+    __typename: "ProjectUsers",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+  } | null,
+};
+
+export type OnUpdateProjectUsersSubscription = {
+  onUpdateProjectUsers:  {
+    __typename: "ProjectUsers",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+  } | null,
+};
+
+export type OnDeleteProjectUsersSubscription = {
+  onDeleteProjectUsers:  {
+    __typename: "ProjectUsers",
+    id: string,
+    user:  {
+      __typename: "User",
+      id: string,
+      name: string,
+      email: string,
+      username: string,
+      picture: string | null,
+      projects:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
+    project:  {
+      __typename: "Project",
+      id: string,
+      title: string,
+      logoUrl: string,
+      description: string,
+      boards:  {
+        __typename: "ModelBoardConnection",
+        nextToken: string | null,
+      } | null,
+      users:  {
+        __typename: "ModelProjectUsersConnection",
+        nextToken: string | null,
+      } | null,
+      ownerUser:  {
+        __typename: "User",
+        id: string,
+        name: string,
+        email: string,
+        username: string,
+        picture: string | null,
+        createdAt: number | null,
+      } | null,
+      createdAt: number | null,
+    } | null,
   } | null,
 };
